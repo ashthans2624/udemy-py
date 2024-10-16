@@ -90,7 +90,8 @@ class Loader:
     def stop(self):
         self.done = True
         # Clear the spinner line
-        cols = os.get_terminal_size().columns
+        import shutil
+        cols = shutil.get_terminal_size(fallback=(80, 20)).columns
         print("\r" + " " * cols, end="", flush=True)
         print("\r", end="", flush=True)
 
